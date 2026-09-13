@@ -1,0 +1,205 @@
+[
+  {
+    "id": 1,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "rule",
+    "kor": "규칙",
+    "pos": "n."
+  },
+  {
+    "id": 2,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "return",
+    "kor": "반납하다",
+    "pos": "v."
+  },
+  {
+    "id": 3,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "medicine",
+    "kor": "약",
+    "pos": "n."
+  },
+  {
+    "id": 4,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "tonight",
+    "kor": "오늘밤에",
+    "pos": "adv."
+  },
+  {
+    "id": 5,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "pay",
+    "kor": "지불하다",
+    "pos": "v."
+  },
+  {
+    "id": 6,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "bill",
+    "kor": "청구서, 고지서",
+    "pos": "n."
+  },
+  {
+    "id": 7,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "dangerous",
+    "kor": "위험한",
+    "pos": "adj."
+  },
+  {
+    "id": 8,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "stay up",
+    "kor": "(늦게까지) 안 자다",
+    "pos": "ph."
+  },
+  {
+    "id": 9,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "pill",
+    "kor": "알약",
+    "pos": "n."
+  },
+  {
+    "id": 10,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "password",
+    "kor": "비밀번호",
+    "pos": "n."
+  },
+  {
+    "id": 11,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "hurt",
+    "kor": "다치게 하다",
+    "pos": "v."
+  },
+  {
+    "id": 12,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "gloves",
+    "kor": "장갑, 글러브",
+    "pos": "n."
+  },
+  {
+    "id": 13,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "feed",
+    "kor": "먹을 것을 주다",
+    "pos": "v."
+  },
+  {
+    "id": 14,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "pack",
+    "kor": "(짐을) 싸다",
+    "pos": "v."
+  },
+  {
+    "id": 15,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "serve",
+    "kor": "(식당 등에서 음식을) 제공하다",
+    "pos": "v."
+  },
+  {
+    "id": 16,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "rush",
+    "kor": "급하게 움직이다, 서두르다",
+    "pos": "v."
+  },
+  {
+    "id": 17,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "near",
+    "kor": "가까이에",
+    "pos": "prep."
+  },
+  {
+    "id": 18,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "respectful",
+    "kor": "공손한, 경의를 표하는",
+    "pos": "adj."
+  },
+  {
+    "id": 19,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "sleeve",
+    "kor": "소매",
+    "pos": "n."
+  },
+  {
+    "id": 20,
+    "unit": "Grammar Space 2 - Unit 8",
+    "eng": "take off",
+    "kor": "(옷 등을) 벗다",
+    "pos": "ph."
+  },
+  {
+    "id": 21,
+    "unit": "Wonders 4.1 - Unit 2",
+    "eng": "beg",
+    "kor": "간청하다, 애원하다",
+    "pos": "v.",
+    "englishMeaning": "ask in a needy way",
+    "sampleSentence": "He begged his parents for a new video game."
+  },
+  {
+    "id": 22,
+    "unit": "Wonders 4.1 - Unit 2",
+    "eng": "challenge",
+    "kor": "도전",
+    "pos": "n.",
+    "englishMeaning": "something that is hard to do",
+    "sampleSentence": "Climbing Mount Everest is a huge challenge."
+  },
+  {
+    "id": 23,
+    "unit": "Wonders 4.1 - Unit 2",
+    "eng": "dangle",
+    "kor": "매달리다, 달랑거리다",
+    "pos": "v.",
+    "englishMeaning": "hang, especially with the risk of falling",
+    "sampleSentence": "The monkey reached out for the grapes dangling on the vine."
+  },
+  {
+    "id": 24,
+    "unit": "Wonders 4.1 - Unit 2",
+    "eng": "fool",
+    "kor": "속이다, 기만하다",
+    "pos": "v.",
+    "englishMeaning": "trick",
+    "sampleSentence": "Don't let my brother fool you into believing his crazy stories."
+  },
+  {
+    "id": 25,
+    "unit": "Wonders 4.1 - Unit 2",
+    "eng": "haughty",
+    "kor": "거만한, 오만한",
+    "pos": "adj.",
+    "englishMeaning": "arrogant; self-important",
+    "sampleSentence": "The haughty librarian said he was too busy to help me."
+  },
+  {
+    "id": 26,
+    "unit": "Wonders 4.1 - Unit 2",
+    "eng": "mind",
+    "kor": "주의하다, 꼭 ...하다",
+    "pos": "v.",
+    "englishMeaning": "pay attention to",
+    "sampleSentence": "You need to mind your manners at the fancy party."
+  },
+  {
+    "id": 27,
+    "unit": "Wonders 4.1 - Unit 2",
+    "eng": "shoot out",
+    "kor": "...을 불쑥 내밀다, 튀어나오다",
+    "pos": "ph.",
+    "englishMeaning": "put out quickly",
+    "sampleSentence": "The frog's tongue shot out and caught the fly."
+  }
+]

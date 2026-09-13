@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>영단어 암기장 | Smart Word Memorizer</title>
+  <meta name="description" content="스캔 단어장 기반의 초고속 영단어 암기 및 스펠링 테스트 정적 웹 애플리케이션" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-background">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <div class="container">
+    <!-- Header Navbar -->
+    <header class="header">
+      <div class="brand">
+        <span class="logo-icon">✨</span>
+        <h1 class="app-title">영단어 암기장</h1>
+      </div>
+
+      <div class="header-controls">
+        <div class="select-wrapper">
+          <select id="unitSelect" class="custom-select" aria-label="단원 선택">
+            <option value="all">📚 전체 단원 (27개)</option>
+            <option value="Grammar Space 2 - Unit 8">📖 Unit 8 (Grammar Space 2)</option>
+            <option value="Wonders 4.1 - Unit 2">📖 Wonders 4.1 (Unit 2)</option>
+          </select>
+        </div>
+
+        <div class="mode-tabs">
+          <button id="tabLearn" class="tab-btn active" data-mode="learn">
+            <span>📖 외우기 모드</span>
+          </button>
+          <button id="tabTest" class="tab-btn" data-mode="test">
+            <span>✍️ 테스트 모드</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main id="appMain" class="main-content">
+      <!-- Progress Header -->
+      <div class="progress-container">
+        <div class="progress-info">
+          <span id="progressText" class="progress-text">진행도: 1 / 27</span>
+          <span id="unitBadge" class="unit-badge">Unit 8</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progressBar" class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- LEARNING MODE CONTAINER -->
+      <section id="learnSection" class="mode-section">
+        <div class="card-toolbar">
+          <button id="ttsBtn" class="tool-btn" title="발음 듣기">
+            🔊 <span class="btn-text">발음 듣기</span>
+          </button>
+          <button id="shuffleBtn" class="tool-btn" title="단어 섞기">
+            🔀 <span class="btn-text">단어 섞기</span>
+          </button>
+          <button id="autoPlayBtn" class="tool-btn" title="자동 재생">
+            ▶️ <span class="btn-text">자동 재생</span>
+          </button>
+        </div>
+
+        <div class="flashcard-wrapper">
+          <div id="flashcard" class="flashcard" tabIndex="0" role="button" aria-label="단어 카드 (클릭하여 뒤집기)">
+            <div class="card-face card-front">
+              <span class="card-label">ENGLISH</span>
+              <div id="cardWord" class="card-main-text">rule</div>
+              <span id="cardPosFront" class="card-pos">n.</span>
+              <p class="flip-hint">👆 클릭하여 한글 뜻 보기 (Spacebar)</p>
+            </div>
+            <div class="card-face card-back">
+              <span class="card-label">KOREAN</span>
+              <div id="cardMeaning" class="card-main-text">규칙</div>
+              <p id="cardEnglishMeaning" class="card-sub-text"></p>
+              <p id="cardSampleSentence" class="card-example-text"></p>
+              <p class="flip-hint">🔄 다시 클릭하여 영단어 보기</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-navigation">
+          <button id="prevBtn" class="nav-btn">← 이전</button>
+          <button id="flipBtn" class="nav-btn primary-nav">카드 뒤집기 🔄</button>
+          <button id="nextBtn" class="nav-btn">다음 →</button>
+        </div>
+      </section>
+
+      <!-- TEST MODE CONTAINER -->
+      <section id="testSection" class="mode-section hidden">
+        <div class="test-header">
+          <div class="test-hint-box">
+            <span class="hint-label">한글 뜻</span>
+            <h2 id="testPrompt" class="test-meaning">규칙</h2>
+            <div class="test-meta">
+              <span id="testPos" class="test-pos">n.</span>
+              <span id="testExtraHint" class="test-extra-hint"></span>
+            </div>
+          </div>
+          <div class="score-pill">
+            점수: <span id="currentScore">0</span> / <span id="totalTestCount">27</span>
+          </div>
+        </div>
+
+        <div class="test-answer-area">
+          <div id="slotsContainer" class="slots-container">
+            <!-- Dynamic letter slots will be inserted here -->
+          </div>
+          <div id="testFeedback" class="test-feedback"></div>
+        </div>
+
+        <!-- Virtual Keyboard -->
+        <div class="virtual-keyboard">
+          <div class="keyboard-row">
+            <button class="key-btn" data-key="Q">Q</button>
+            <button class="key-btn" data-key="W">W</button>
+            <button class="key-btn" data-key="E">E</button>
+            <button class="key-btn" data-key="R">R</button>
+            <button class="key-btn" data-key="T">T</button>
+            <button class="key-btn" data-key="Y">Y</button>
+            <button class="key-btn" data-key="U">U</button>
+            <button class="key-btn" data-key="I">I</button>
+            <button class="key-btn" data-key="O">O</button>
+            <button class="key-btn" data-key="P">P</button>
+          </div>
+          <div class="keyboard-row">
+            <button class="key-btn" data-key="A">A</button>
+            <button class="key-btn" data-key="S">S</button>
+            <button class="key-btn" data-key="D">D</button>
+            <button class="key-btn" data-key="F">F</button>
+            <button class="key-btn" data-key="G">G</button>
+            <button class="key-btn" data-key="H">H</button>
+            <button class="key-btn" data-key="J">J</button>
+            <button class="key-btn" data-key="K">K</button>
+            <button class="key-btn" data-key="L">L</button>
+          </div>
+          <div class="keyboard-row">
+            <button id="hintBtn" class="key-btn action-key hint-key" title="첫 글자 힌트">💡 힌트</button>
+            <button class="key-btn" data-key="Z">Z</button>
+            <button class="key-btn" data-key="X">X</button>
+            <button class="key-btn" data-key="C">C</button>
+            <button class="key-btn" data-key="V">V</button>
+            <button class="key-btn" data-key="B">B</button>
+            <button class="key-btn" data-key="N">N</button>
+            <button class="key-btn" data-key="M">M</button>
+            <button id="backspaceBtn" class="key-btn action-key">⌫ 삭제</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULT MODAL -->
+      <div id="resultModal" class="modal-overlay hidden">
+        <div class="modal-card">
+          <div class="result-header">
+            <span class="result-emoji" id="resultEmoji">🎉</span>
+            <h2 id="resultTitle">테스트 완료!</h2>
+          </div>
+          <div class="result-stats">
+            <div class="stat-box">
+              <span class="stat-number" id="finalScore">0</span>
+              <span class="stat-label">맞힌 문제</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number" id="finalTotal">27</span>
+              <span class="stat-label">총 문제</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number" id="finalAccuracy">0%</span>
+              <span class="stat-label">정답률</span>
+            </div>
+          </div>
+          <div id="wrongWordsList" class="wrong-words-container hidden">
+            <h3>📌 틀린 단어 목록</h3>
+            <ul id="wrongWordsUl" class="wrong-words-ul"></ul>
+          </div>
+          <div class="result-actions">
+            <button id="retryWrongBtn" class="modal-btn secondary-btn hidden">오답 다시 풀기 🔄</button>
+            <button id="restartTestBtn" class="modal-btn primary-btn">처음부터 다시 🚀</button>
+            <button id="closeResultBtn" class="modal-btn ghost-btn">외우기 모드로 이동</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
