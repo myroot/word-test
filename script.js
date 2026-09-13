@@ -454,8 +454,38 @@
     }
   });
 
-  // Learning Flashcard clicks
-  flashcard.addEventListener('click', flipCard);
+  // Learning Flashcard clicks & Touch Swipe
+  flashcard.addEventListener('click', (e) => {
+    // Prevent flip on touch swipe
+    if (Math.abs(touchEndX - touchStartX) < 15) {
+      flipCard();
+    }
+  });
+
+  // Touch Swipe Gesture Handling for Mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  flashcard.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  flashcard.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipeGesture();
+  }, { passive: true });
+
+  const handleSwipeGesture = () => {
+    const swipeDistance = touchEndX - touchStartX;
+    if (swipeDistance < -40) {
+      // Swiped Left -> Next Word
+      nextLearnWord();
+    } else if (swipeDistance > 40) {
+      // Swiped Right -> Prev Word
+      prevLearnWord();
+    }
+  };
+
   flipBtn.addEventListener('click', flipCard);
   nextBtn.addEventListener('click', nextLearnWord);
   prevBtn.addEventListener('click', prevLearnWord);
